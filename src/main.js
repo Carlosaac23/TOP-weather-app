@@ -17,9 +17,6 @@ const weatherCardRight = document.querySelector(
 	'.weather__card-container .right',
 );
 
-console.log(weatherCardLeft);
-console.log(weatherCardRight);
-
 async function getWeatherData() {
 	const location = document
 		.getElementById('location')
@@ -37,7 +34,6 @@ async function getWeatherData() {
 }
 
 function processWeatherData(data) {
-	console.log(data);
 	const { address: city, description, timezone } = data;
 	const { conditions, icon, temp } = data.currentConditions;
 
@@ -45,7 +41,6 @@ function processWeatherData(data) {
 }
 
 function renderWeatherData(data) {
-	console.log(data);
 	const { city, description, timezone, conditions, icon, temp } = data;
 	addCustomBackground(icon);
 	const iconURL = `https://github.com/visualcrossing/WeatherIcons/raw/main/SVG/2nd%20Set%20-%20Color/${icon}.svg`;
