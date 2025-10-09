@@ -1,4 +1,7 @@
 :root {
+	--bg-color: #fafafa;
+	--font-color: #0a0a0a;
+	--bg-color-muted: #f5f5f5;
 	--border-color: #a3a3a3;
 }
 
@@ -13,15 +16,19 @@
 }
 
 body {
+	background-color: var(--bg-color);
+	color: var(--font-color);
 	font-family: Inter-Regular, Arial, Helvetica, sans-serif;
 	font-size: 16px;
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
 .container {
+	background-color: white;
 	padding: 20px;
 	margin-top: 20px;
 	border: 1px solid var(--border-color);
@@ -42,11 +49,12 @@ body {
 .container__input {
 	border: 1px solid var(--border-color);
 	border-radius: 6px;
-	background-color: #fafafa;
+	background-color: var(--bg-color-muted);
 	padding: 4px;
 }
 
 .container__btn {
+	background-color: var(--bg-color-muted);
 	padding: 4px 10px;
 	border: 1px solid var(--border-color);
 	border-radius: 6px;
@@ -55,4 +63,57 @@ body {
 .container__btn:hover {
 	cursor: pointer;
 	opacity: 0.7;
+}
+
+.weather__card-container {
+	margin-top: 16px;
+	border-radius: 6px;
+	width: 370px;
+	height: 100px;
+	box-shadow:
+		0 1px 3px 0 rgb(0 0 0 / 0.1),
+		0 1px 2px -1px rgb(0 0 0 / 0.1);
+	padding: 10px;
+
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.weather__card-container .left {
+	width: 45%;
+}
+
+.weather__card-icon {
+	width: 40px;
+}
+
+.weather__card-temperature {
+	font-size: 0.8rem;
+	font-weight: 600;
+	margin-top: 6px;
+}
+
+.weather__card-conditions {
+	font-size: 0.725rem;
+}
+
+.weather__card-container .right {
+	width: 65%;
+}
+
+.weather__card-timezone {
+	font-size: 0.9rem;
+	text-align: right;
+}
+
+.weather__card-city {
+	font-family: Inter-Bold, sans-serif;
+	font-size: 1.1rem;
+	text-align: right;
+}
+
+.weather__card-description {
+	font-size: 0.7rem;
+	text-align: right;
 }
