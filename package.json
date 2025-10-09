@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "webpack serve --open --config webpack.dev.js",
-		"prod": "webpack --config webpack.prod.js",
+		"build": "webpack --config webpack.prod.js",
 		"deploy": "git subtree push --prefix dist origin gh-pages"
 	},
 	"repository": {
