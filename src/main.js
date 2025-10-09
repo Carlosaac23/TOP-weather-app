@@ -37,13 +37,18 @@ function processWeatherData(data) {
 	const { address: city, description, timezone } = data;
 	const { conditions, icon, temp } = data.currentConditions;
 
-	renderWeatherData({ city, description, timezone, conditions, icon, temp });
+	showSpinner();
+	weatherCard.style.display = 'none';
+	setTimeout(() => {
+		hideSpinner();
+		renderWeatherData({ city, description, timezone, conditions, icon, temp });
+	}, 250);
 }
 
 function renderWeatherData(data) {
 	const { city, description, timezone, conditions, icon, temp } = data;
-	addCustomBackground(icon);
 	const iconURL = `https://github.com/visualcrossing/WeatherIcons/raw/main/SVG/2nd%20Set%20-%20Color/${icon}.svg`;
+	addCustomBackground(icon);
 
 	weatherCardLeft.innerHTML = '';
 	weatherCardRight.innerHTML = '';
@@ -158,4 +163,12 @@ function addCustomBackground(conditions) {
 	weatherCard.style.background = `linear-gradient${backgrounds[conditions]}`;
 	weatherCard.style.color = nightOrDay ? '#fafafa' : '#0a0a0a';
 	weatherCard.style.display = 'flex';
+}
+
+function showSpinner() {
+	document.getElementById('spinner').style.display = 'block';
+}
+
+function hideSpinner() {
+	document.getElementById('spinner').style.display = 'none';
 }
