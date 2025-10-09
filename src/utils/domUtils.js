@@ -1,7 +1,3 @@
-export function formatWords(words) {
-	return words.split('-').join(' ');
-}
-
 export function fahrenheitToCelcius(fahrenheit) {
 	return (((fahrenheit - 32) * 5) / 9).toFixed(0);
 }
